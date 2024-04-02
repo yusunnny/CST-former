@@ -1,7 +1,7 @@
 # CST-former: Transformer with Channel-Spectro-Temporal Attention  for Sound Event Localization and Detection
 - Yusun Shul, Jung-Woo Choi*
-- ICASSP 2024 Accepted
-
+- ICASSP 2024
+  
 ## Overview
 ### Architecture of audio-only CST-former for SELD
   ![Architecture](architecture/CST_former_overview.png)
@@ -70,3 +70,17 @@ DCASE_SELD                                   This repository.
 - pip install -r requirements.txt
 - pip install torch==2.0.0 torchvision==0.15.1 torchaudio==2.0.1 --index-url https://download.pytorch.org/whl/cu118
 - conda install -c conda-forge libsndfile
+
+## Citation 
+If you find our SpatialScaper library useful, please cite the following paper:
+```   
+@inproceedings{shul2024cstformer,
+  title={CST-Former: Transformer with Channel-Spectro-Temporal Attention for Sound Event Localization and Detection},
+  author={Shul, Yusun and Choi, Jung-Woo},
+  booktitle={IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  year={2024},
+  organization={IEEE},
+  pages={8686-8690},
+  doi={10.1109/ICASSP48485.2024.10447181}
+}
+```
