@@ -101,17 +101,7 @@ def get_params(argv='1'):
     # ########### User defined parameters ##############
     if argv == '1':
         print("USING DEFAULT PARAMETERS\n")
-
-    elif argv == '2':
-        print("FOA + ACCDOA + baseline\n")
-        params['dataset'] = 'foa'
-        params['multi_accdoa'] = False
-
-    elif argv == '3':
-        print("FOA + multi ACCDOA + baseline\n")
-        params['dataset'] = 'foa'
-        params['multi_accdoa'] = True
-
+        
     elif argv == '21':
         print("[DST-attention] FOA + ACCDOA + Divided S-T (S dim : 16)\n")
         params['dataset'] = 'foa'
