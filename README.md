@@ -50,12 +50,11 @@ DCASE_SELD                                   This repository.
 ### Training Trial
 
 1. Parameter Setting: ```parameters.py```
-2. Preprocess audio data to log-mel spectrogram and intensity vector  ```  python3 preprocess.py <task-id> ```
-  - The differences due to task-id for preprocessing are 
-    - Label format
-      - multi-accdoa : params['multi_accdoa'] = True at ```parameters.py```
-      - single-accdoa : params['multi_accdoa'] = False at ```parameters.py```
-3. Train CST-former
+2. Preprocess audio data to log-mel spectrogram and intensity vector
+   ```
+   python3 preprocess.py <task-id>
+   ```
+4. Train CST-former
   - Additionally, you can add/change parameters by using a unique identifier task-id in if-else loop as seen in the parameter.py script and call them as following
   ```
   python3 train.py <task-id> <job-id>
