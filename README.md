@@ -1,4 +1,4 @@
-# CST-former: Transformer with Channel-Spectro-Temporal Attention  for Sound Event Localization and Detection: ICASSP 2024
+# CST-former: Transformer with Channel-Spectro-Temporal Attention  for Sound Event Localization and Detection (ICASSP 2024)
 - Yusun Shul, Jung-Woo Choi*
 - ICASSP 2024
   
