@@ -48,15 +48,29 @@ DCASE_SELD                                   This repository.
 ```
 
 ### Training Trial
-```
-1. Parameter Setting: parameters.py
+
+1. Parameter Setting: ```parameters.py```
 2. Preprocess audio data to log-mel spectrogram and intensity vector: preprocess.py
-    Ex. python3 preprocess.py <task-id>
+  ```  
+  python3 preprocess.py <task-id>
+  ```
+  - The differences due to task-id for preprocess are 
+    - Label format
+      - multi-accdoa : params['multi_accdoa'] = True at ```parameters.py```
+      - single-accdoa : params['multi_accdoa'] = False at ```parameters.py```
+    - ACS rotation applied and saved : params['ACS']=True at ```parameters.py```
 3. Train CST-former: train.py
-    Ex. python3 train.py <task-id> <job-id>
+  - Additionally, you can add/change parameters by using a unique identifier <task-id> in if-else loop as seen in the parameter.py script and call them as following
+  ```
+  python3 train.py <task-id> <job-id>
+  ```
+  - Where <job-id> is a unique identifier which is used for output filenames (models, training plots). You can use any number or string for this.
+
 4. Inference for evaluation: inference.py
-    Ex. python3 inference.py <task-id> <job-id>
-```
+  ```   
+  python3 inference.py <task-id> <job-id>
+  ```
 
 ## Requirements
-- To be added
+- pip install -r requirements
+- pip install torch==2.0.0 torchvision==0.15.1 torchaudio==2.0.1 --index-url https://download.pytorch.org/whl/cu118
