@@ -77,7 +77,7 @@ class CMT_Layers(torch.nn.Module):
                 x_2 = rearrange(x, 'b t (m f c) -> b (t m f) c', m=M, f=F).contiguous()
                 x_res = rearrange(x, 'b t (m f c) -> (b m) c t f', m=M, f=F).contiguous()
                 norm1 = self.norm1(x_2)
-                norm1 = rearrange(norm1, 'b (t m f) c -> (b m) c t f', c=C, t=T).contiguous()
+                norm1 = rearrange(norm1, 'b (t m f) c -> (b m) c t f', f=F, c=C, t=T).contiguous()
                 ffn = self.IRFFN(norm1)
                 x = x_res + self.drop_path(ffn)
 
