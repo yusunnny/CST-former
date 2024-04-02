@@ -26,9 +26,7 @@ DCASE_SELD                                   This repository.
 |       |   ├── dev-train-tau
 |       |   ├── dev-train-synth-official
 |       |   └── dev-train-synth-fsd50k-noisy <-- example naming of additional synthetic dataset
-|       ├── metadata_dev                     CSV format.
-|       ├── video_360x180_dev                MP4 format, converted from video_dev by `resize_video.py`.
-|       └── video_dev                        MP4 format.
+|       └── metadata_dev                     CSV format.
 ├── architecture
 |   ├── CST_details
 |   |   ├── CMT_Block.py                     LPU & IRFFN
@@ -37,11 +35,6 @@ DCASE_SELD                                   This repository.
 |   |   └── layers.py
 |   └── CST_former_model.py                  CST_former
 |   └── seldnet_model.py                     DCASE 2023 task3 baseline model
-├── augment                                  
-|   ├── data_aug.py                          Data augmentation methods
-|   ├── data_aug_fnc.py                      Additional functions to employ augmetation methods
-|   ├── data_aug_module.py                   Defining data augmentation module for training 
-|   └── foa_rotate.py                        FoA rotation module while preprocessing
 ├── cls                                      We follow the metrics of challenge.
 |   ├── cls_compute_seld_results.py
 |   ├── cls_data_generator.py
