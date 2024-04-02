@@ -34,7 +34,6 @@ DCASE_SELD                                   This repository.
 |   |   ├── encoder.py                       Conv / SENet / ResNet Encoder
 |   |   └── layers.py
 |   └── CST_former_model.py                  CST_former
-|   └── seldnet_model.py                     DCASE 2023 task3 baseline model
 ├── cls                                      We follow the metrics of challenge.
 |   ├── cls_compute_seld_results.py
 |   ├── cls_data_generator.py
