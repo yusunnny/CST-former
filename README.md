@@ -54,11 +54,10 @@ DCASE_SELD                                   This repository.
   ```  
   python3 preprocess.py <task-id>
   ```
-  - The differences due to task-id for preprocess are 
+  - The differences due to task-id for preprocessing are 
     - Label format
       - multi-accdoa : params['multi_accdoa'] = True at ```parameters.py```
       - single-accdoa : params['multi_accdoa'] = False at ```parameters.py```
-    - ACS rotation applied and saved : params['ACS']=True at ```parameters.py```
 3. Train CST-former: train.py
   - Additionally, you can add/change parameters by using a unique identifier task-id in if-else loop as seen in the parameter.py script and call them as following
   ```
