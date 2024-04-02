@@ -60,11 +60,11 @@ DCASE_SELD                                   This repository.
       - single-accdoa : params['multi_accdoa'] = False at ```parameters.py```
     - ACS rotation applied and saved : params['ACS']=True at ```parameters.py```
 3. Train CST-former: train.py
-  - Additionally, you can add/change parameters by using a unique identifier <task-id> in if-else loop as seen in the parameter.py script and call them as following
+  - Additionally, you can add/change parameters by using a unique identifier task-id in if-else loop as seen in the parameter.py script and call them as following
   ```
   python3 train.py <task-id> <job-id>
   ```
-  - Where <job-id> is a unique identifier which is used for output filenames (models, training plots). You can use any number or string for this.
+  - Where job-id is a unique identifier that is used for output filenames (models, training plots). You can use any number or string for this.
 
 4. Inference for evaluation: inference.py
   ```   
