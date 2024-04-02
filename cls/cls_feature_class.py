@@ -16,8 +16,6 @@ import shutil
 import math
 import wave
 import contextlib
-from augmentation.foa_rotate import data_rotate_module
-
 
 def nCr(n, r):
     return math.factorial(n) // math.factorial(r) // math.factorial(n - r)
@@ -465,32 +463,6 @@ class FeatureClass:
                 del feat_file
 
         print('normalized files written to {}'.format(self._feat_dir_norm))
-
-    def rotate_features(self,params,train_splits):
-        self._feat_dir_norm = self.get_normalized_feat_dir()
-        self._label_dir = self.get_label_dir()
-        self._label_dir_ACS = self.get_ACS_label_dir()
-        self._feat_dir_ACS = self.get_ACS_feat_dir()
-        create_folder(self._feat_dir_ACS)
-        create_folder(self._label_dir_ACS)
-        rotate_module = data_rotate_module(params)
-
-        if params['use_real_imag']:
-            self._nb_f_bins = self.get_nb_linear_bins()
-        else:
-            self._nb_f_bins = self.get_nb_mel_bins()
-
-        print("Rotating Features")
-        for file_cnt, file_name in enumerate(os.listdir(self._feat_dir_norm)):
-            print(file_name)
-            feat = np.load(os.path.join(self._feat_dir_norm, file_name))
-            label = np.load(os.path.join(self._label_dir, file_name))
-            np.save(os.path.join(self._feat_dir_ACS, file_name), feat)
-            np.save(os.path.join(self._label_dir_ACS, file_name), label)
-            if int(file_name[4]) in np.array(train_splits):
-                self._nb_ch = feat.shape[1] // self._nb_f_bins
-                feat = feat.reshape(feat.shape[0], self._nb_ch, self._nb_f_bins).transpose(1,0,2)
-                rotate_module.save_rotated_data(feat,label,feat_dir=self._feat_dir_ACS,label_dir=self._label_dir_ACS,file_name=file_name)
 
     # ------------------------------- EXTRACT LABELS AND PREPROCESS IT -------------------------------
     def extract_all_labels(self):
