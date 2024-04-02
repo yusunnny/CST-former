@@ -112,7 +112,7 @@ def get_params(argv='1'):
         params["f_pool_size"] = [2, 2, 1]
 
     elif argv == '31':
-        print("[DST-former] FOA + ACCDOA + DST + CMT (S dim : 16)\n")
+        print("[DST-former] FOA + Multi-ACCDOA + DST + CMT (S dim : 16)\n")
         params['dataset'] = 'foa'
         params['multi_accdoa'] = True
 
