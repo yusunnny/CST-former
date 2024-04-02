@@ -140,7 +140,7 @@ def get_params(argv='1'):
         params['batch_size'] = 256 #256
 
     elif argv == '39':
-        print("[CST-former: Divided Channel Attention] \n FOA + Multi-ACCDOA + CST_DCA + CMT (S dim : 16)\n")
+        print("[CST-former: Divided Channel Attention] FOA + Multi-ACCDOA + CST_DCA + CMT (S dim : 16)\n")
         params['dataset'] = 'foa'
         params['multi_accdoa'] = True
 
@@ -158,8 +158,7 @@ def get_params(argv='1'):
         params['batch_size'] = 32
 
     elif argv == '393':
-        print("[CST-former: Unfolded Local Embedding] \n
-                FOA + Multi-ACCDOA + CST Unfold + CMT (S dim : 16)\n")
+        print("[CST-former: Unfolded Local Embedding] FOA + Multi-ACCDOA + CST Unfold + CMT (S dim : 16)\n")
         params['dataset'] = 'foa'
         params['multi_accdoa'] = True
 
