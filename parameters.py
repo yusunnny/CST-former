@@ -40,8 +40,6 @@ def get_params(argv='1'):
         fmin_doa_salsalite=50,
         fmax_doa_salsalite=2000,
         fmax_spectra_salsalite=9000,
-        ACS = False,
-        FoA16Rotation = False,
 
         # MODEL TYPE
         baseline = True,
