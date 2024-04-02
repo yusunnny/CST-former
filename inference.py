@@ -10,7 +10,7 @@ import torch.nn as nn
 
 plot.switch_backend('agg')
 from cls.cls_compute_seld_results import ComputeSELDResults
-from architecture import proposed_model as model_architecture
+from architecture import CST_former_model as model_architecture
 from utility.load_state_dict import load_state_dict
 from utility.loss_adpit import MSELoss_ADPIT
 from utility.test_epoch import test_epoch
