@@ -4,16 +4,12 @@ import utility.lr_sched as lr_sched
 import matplotlib.pyplot as plot
 plot.switch_backend('agg')
 
-from augmentation.data_aug_module import data_augment_module
-
 def train_epoch(data_generator, optimizer, model, criterion, params, device, epoch_cnt):
     nb_train_batches, train_loss = 0, 0.
     model.train()
 
     total_batches = data_generator.get_total_batches_in_data()
-    if params["augment"]:
-        augment_module = data_augment_module(params)
-
+    
     with tqdm(total=total_batches) as pbar:
         for data, target in data_generator.generate():
 
@@ -25,15 +21,6 @@ def train_epoch(data_generator, optimizer, model, criterion, params, device, epo
                     lr_sched.adjust_learning_rate_ramp(optimizer, nb_train_batches / total_batches + epoch_cnt, params)
                 else:
                     lr_sched.adjust_learning_rate(optimizer, nb_train_batches / total_batches + epoch_cnt, params)
-
-            if params["augment"]:
-                if not params["multi_accdoa"]:
-                    data, target = augment_module.aug_and_mix(data, target)
-                else:
-                    data, target = augment_module.aug_and_mix_multi(data, target)
-                data, target = data.to(device).float(), target.to(device).float()
-            else:
-                data, target = torch.tensor(data).to(device).float(), torch.tensor(target).to(device).float()
 
             optimizer.zero_grad()
             output = model(data.contiguous())
