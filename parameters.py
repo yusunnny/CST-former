@@ -34,8 +34,7 @@ def get_params(argv='1'):
         max_audio_len_s=60,
         nb_mel_bins=64,
         audio_overlap = False,
-
-        use_real_imag = False,
+        
         use_salsalite=False,  # Used for MIC dataset only. If true use salsalite features, else use GCC features
         fmin_doa_salsalite=50,
         fmax_doa_salsalite=2000,
@@ -46,12 +45,12 @@ def get_params(argv='1'):
         # MODEL TYPE
         baseline = True,
         encoder = 'conv',           # ['conv', 'ResNet', 'SENet']
-        LinearLayer = False,        # Linear Layer right after attention layers (usually not used / employed in baseline model)
+        LinearLayer = False,        # Linear Layer right after attention layers (usually not used/employed in baseline model)
         FreqAtten = False,          # Use of Divided Spectro-Temporal Attention (DST Attention)
         ChAtten_DCA = False,        # Use of Divided Channel-S-T Attention (CST Attention)
         ChAtten_ULE = False,        # Use of Divided C-S-T attention with Unfold (Unfolded CST attention)
         CMT_block = False,          # Use of LPU & IRFNN
-        CMT_split = False,          # Apply LPU & IRFNN on S, T attention layers independantly
+        CMT_split = False,          # Apply LPU & IRFNN on S, T attention layers independently
         multi_accdoa=False,         # False - Single-ACCDOA or True - Multi-ACCDOA
         thresh_unify=15,            # Required for Multi-ACCDOA only. Threshold of unification for inference in degrees.
 
@@ -64,13 +63,6 @@ def get_params(argv='1'):
         f_pool_size=[4, 4, 2],
         t_pooling_loc = 'front',
         # CNN frequency pooling, length of list = number of CNN layers, list value = pooling per layer
-
-        augment = False,
-        always_apply_aug = False,
-        is_FS = False,
-        is_MU = False,
-        is_TM = False,
-        is_FA = False,
 
         self_attn=True,
         nb_heads=8,
@@ -129,7 +121,7 @@ def get_params(argv='1'):
         params["f_pool_size"] = [2, 2, 1]
 
     elif argv == '365':
-        print("FOA + ACCDOA + DST + CMT (S dim : 16)\n")
+        print("[DST-former] FOA + ACCDOA + DST + CMT (S dim : 16)\n")
         params['dataset'] = 'foa'
         params['multi_accdoa'] = True
 
@@ -145,15 +137,9 @@ def get_params(argv='1'):
         params['t_pool_size'] = [1,1, params['feature_label_resolution']]
 
         params['batch_size'] = 256 #256
-        params['ACS'] = True
-        params["augment"] = True
-        # params['always_apply_aug'] = True
-        params["is_FS"] = True
-        params["is_MU"] = True
-        params["is_TM"] = True
 
     elif argv == '39':
-        print("FOA + Multi-ACCDOA + CST_DCA + CMT (S dim : 16)\n")
+        print("[CST-former: Divided Channel Attention] \n FOA + Multi-ACCDOA + CST_DCA + CMT (S dim : 16)\n")
         params['dataset'] = 'foa'
         params['multi_accdoa'] = True
 
@@ -171,13 +157,10 @@ def get_params(argv='1'):
         params['batch_size'] = 32
 
     elif argv == '393':
-        print("FOA + Multi-ACCDOA + CST Unfold + CMT (S dim : 16)\n")
+        print("[CST-former: Unfolded Local Embedding] \n
+                FOA + Multi-ACCDOA + CST Unfold + CMT (S dim : 16)\n")
         params['dataset'] = 'foa'
         params['multi_accdoa'] = True
-
-        # params['dataset_dir'] = './data/2022DCASE_data/'
-        # params['feat_label_dir'] = './data/feature_labels_2022/'
-        # params['save_dir'] = 'output/2022'
 
         params['baseline'] = False
         params['lr_scheduler'] = True
@@ -190,24 +173,8 @@ def get_params(argv='1'):
         params['ChAtten_ULE'] = True
         params['CMT_block'] = True
 
-        params["f_pool_size"] = [1,2,2] #[1,2,2]
+        params["f_pool_size"] = [1,2,2] 
         params['t_pool_size'] = [1,1, params['feature_label_resolution']]
-
-        params['ACS'] = True
-
-        params['augment'] = True
-        # params['always_apply_aug'] = True
-        params["is_FS"] = True
-        params["is_MU"] = True
-        params["is_TM"] = True
-        # params["is_FA"] = False
-
-    elif argv == '4':
-        print("FOA+ Real & Imag + ACCDOA\n")
-        params['dataset'] = 'foa'
-        params['use_real_imag'] = True
-        params['use_salsalite'] = False
-        params['multi_accdoa'] = False
 
     elif argv == '999':
         print("QUICK TEST MODE\n")
