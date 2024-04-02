@@ -72,7 +72,7 @@ DCASE_SELD                                   This repository.
 - conda install -c conda-forge libsndfile
 
 ## Citation 
-If you find our SpatialScaper library useful, please cite the following paper:
+If you find the CST-former useful, please cite the following paper:
 ```   
 @inproceedings{shul2024cstformer,
   title={CST-Former: Transformer with Channel-Spectro-Temporal Attention for Sound Event Localization and Detection},
