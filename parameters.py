@@ -112,8 +112,8 @@ def get_params(argv='1'):
         params['dataset'] = 'foa'
         params['multi_accdoa'] = True
 
-    elif argv == '23':
-        print("FOA + ACCDOA + Divided S-T (S dim : 16)\n")
+    elif argv == '21':
+        print("[DST-attention] FOA + ACCDOA + Divided S-T (S dim : 16)\n")
         params['dataset'] = 'foa'
         params['multi_accdoa'] = False
 
@@ -121,7 +121,7 @@ def get_params(argv='1'):
         params['FreqAtten'] = True
         params["f_pool_size"] = [2, 2, 1]
 
-    elif argv == '365':
+    elif argv == '31':
         print("[DST-former] FOA + ACCDOA + DST + CMT (S dim : 16)\n")
         params['dataset'] = 'foa'
         params['multi_accdoa'] = True
@@ -139,7 +139,7 @@ def get_params(argv='1'):
 
         params['batch_size'] = 256 #256
 
-    elif argv == '39':
+    elif argv == '32':
         print("[CST-former: Divided Channel Attention] FOA + Multi-ACCDOA + CST_DCA + CMT (S dim : 16)\n")
         params['dataset'] = 'foa'
         params['multi_accdoa'] = True
@@ -157,7 +157,7 @@ def get_params(argv='1'):
         params['t_pool_size'] = [params['feature_label_resolution'], 1, 1]
         params['batch_size'] = 32
 
-    elif argv == '393':
+    elif argv == '33':
         print("[CST-former: Unfolded Local Embedding] FOA + Multi-ACCDOA + CST Unfold + CMT (S dim : 16)\n")
         params['dataset'] = 'foa'
         params['multi_accdoa'] = True
