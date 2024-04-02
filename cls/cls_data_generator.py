@@ -7,7 +7,6 @@ import numpy as np
 import cls.cls_feature_class as cls_feature_class
 from collections import deque
 import random
-import cv2
 
 class DataGenerator(object):
     def __init__(
@@ -281,10 +280,6 @@ class DataGenerator(object):
                 label_shape = (self._batch_size, self._label_seq_len, self._nb_classes * 3)
         return feat_shape, label_shape
 
-    def get_video_sizes(self):
-        video_shape = (self._batch_size, 3, self._video_seq_len, 180, 360)
-        return video_shape
-
     def _get_filelist_n_frames(self,filename):
         self._filenames_list.append(filename)
         temp_feat = np.load(os.path.join(self._feat_dir, filename))
@@ -292,19 +287,6 @@ class DataGenerator(object):
         if temp_feat.shape[0] > self.max_frames:
             self.max_frames = temp_feat.shape[0]
         return temp_feat
-
-    def _load_video_frames(self, video_path, new_fps):
-        frames = []
-        cap = cv2.VideoCapture(video_path)
-        fps = cap.get(cv2.CAP_PROP_FPS)
-        nb_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-        nb_frames_new = int(nb_frames/ fps * new_fps)
-        for frame_pos in range(nb_frames_new):
-            cap.set(cv2.CAP_PROP_POS_FRAMES, frame_pos * fps / new_fps)
-            _, frame = cap.read()
-            frame_rgb_in = frame[:, :, [2, 1, 0]] # BGR -> RGB
-            frames.append(frame_rgb_in)
-        return np.asarray(frames)
 
     def get_nb_classes(self):
         return self._nb_classes
