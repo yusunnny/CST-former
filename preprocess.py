@@ -24,14 +24,6 @@ def main(argv):
     # Extract labels
     dev_feat_cls.extract_all_labels()
 
-    train_splits, val_splits, test_splits = None, None, None
-    if params['mode'] == 'dev':
-        if '2022' in params['dataset_dir']:
-            train_splits = [[1, 2, 3]]
-        elif '2023' in params['dataset_dir']:
-            train_splits = [[1,2,3]]
-    dev_feat_cls.rotate_features(params,train_splits)
-
 
 if __name__ == "__main__":
     try:
