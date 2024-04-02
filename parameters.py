@@ -34,7 +34,8 @@ def get_params(argv='1'):
         max_audio_len_s=60,
         nb_mel_bins=64,
         audio_overlap = False,
-        
+
+        use_real_imag = False,
         use_salsalite=False,  # Used for MIC dataset only. If true use salsalite features, else use GCC features
         fmin_doa_salsalite=50,
         fmax_doa_salsalite=2000,
