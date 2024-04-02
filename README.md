@@ -50,10 +50,7 @@ DCASE_SELD                                   This repository.
 ### Training Trial
 
 1. Parameter Setting: ```parameters.py```
-2. Preprocess audio data to log-mel spectrogram and intensity vector
-  ```  
-  python3 preprocess.py <task-id>
-  ```
+2. Preprocess audio data to log-mel spectrogram and intensity vector  ```  python3 preprocess.py <task-id> ```
   - The differences due to task-id for preprocessing are 
     - Label format
       - multi-accdoa : params['multi_accdoa'] = True at ```parameters.py```
