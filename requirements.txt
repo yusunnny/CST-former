@@ -1,0 +1,15 @@
+numpy==1.18.5
+torch
+audiofile==1.2.1
+audioread==2.1.9
+audmath==1.2.1
+audtorch==0.6.4
+einops==0.7.0
+scipy==1.4.1
+ipython==8.4.0
+scikit-learn==0.24.2
+joblib==1.0.1
+matplotlib==3.4.2
+librosa==0.8.1
+tqdm==4.62.0
+simplejson==3.18.1
