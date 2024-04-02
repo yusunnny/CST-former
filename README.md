@@ -74,13 +74,11 @@ DCASE_SELD                                   This repository.
 ## Citation 
 If you find the CST-former useful, please cite the following paper:
 ```   
-@inproceedings{shul2024cstformer,
-  title={CST-Former: Transformer with Channel-Spectro-Temporal Attention for Sound Event Localization and Detection},
+@INPROCEEDINGS{shul2024cstformer,
   author={Shul, Yusun and Choi, Jung-Woo},
-  booktitle={IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  booktitle={ICASSP 2024 - 2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, 
+  title={CST-Former: Transformer with Channel-Spectro-Temporal Attention for Sound Event Localization and Detection}, 
   year={2024},
-  organization={IEEE},
   pages={8686-8690},
-  doi={10.1109/ICASSP48485.2024.10447181}
-}
+  doi={10.1109/ICASSP48485.2024.10447181}}
 ```
