@@ -178,7 +178,7 @@ class CST_attention(torch.nn.Module):
                 xt = self.drop_out(xt)
             x = self.temp_layer_norm(xt)
 
-        else:
+        else: # Basic Temporal Attention
             x_attn_in = x
             x, _ = self.temp_mhsa(x_attn_in, x_attn_in, x_attn_in)
             x = x + x_attn_in
