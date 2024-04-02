@@ -50,7 +50,7 @@ DCASE_SELD                                   This repository.
 ### Training Trial
 
 1. Parameter Setting: ```parameters.py```
-2. Preprocess audio data to log-mel spectrogram and intensity vector: preprocess.py
+2. Preprocess audio data to log-mel spectrogram and intensity vector
   ```  
   python3 preprocess.py <task-id>
   ```
@@ -58,14 +58,14 @@ DCASE_SELD                                   This repository.
     - Label format
       - multi-accdoa : params['multi_accdoa'] = True at ```parameters.py```
       - single-accdoa : params['multi_accdoa'] = False at ```parameters.py```
-3. Train CST-former: train.py
+3. Train CST-former
   - Additionally, you can add/change parameters by using a unique identifier task-id in if-else loop as seen in the parameter.py script and call them as following
   ```
   python3 train.py <task-id> <job-id>
   ```
   - Where job-id is a unique identifier that is used for output filenames (models, training plots). You can use any number or string for this.
 
-4. Inference for evaluation: inference.py
+4. Inference for evaluation
   ```   
   python3 inference.py <task-id> <job-id>
   ```
