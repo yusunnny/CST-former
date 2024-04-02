@@ -21,13 +21,8 @@ class DataGenerator(object):
         self._shuffle = shuffle
         self._feat_cls = cls_feature_class.FeatureClass(params=params, is_eval=self._is_eval)
 
-        if not params['ACS']:
-            self._label_dir = self._feat_cls.get_label_dir()
-            self._feat_dir = self._feat_cls.get_normalized_feat_dir()
-        else:
-            self._label_dir = self._feat_cls.get_ACS_label_dir()
-            self._feat_dir = self._feat_cls.get_ACS_feat_dir()
-
+        self._label_dir = self._feat_cls.get_label_dir()
+        self._feat_dir = self._feat_cls.get_normalized_feat_dir()
 
         self._multi_accdoa = params['multi_accdoa']
         self._use_real_imag = params['use_real_imag']
