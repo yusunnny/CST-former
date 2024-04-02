@@ -22,6 +22,7 @@ def train_epoch(data_generator, optimizer, model, criterion, params, device, epo
                 else:
                     lr_sched.adjust_learning_rate(optimizer, nb_train_batches / total_batches + epoch_cnt, params)
 
+            data, target = torch.tensor(data).to(device).float(), torch.tensor(target).to(device).float()
             optimizer.zero_grad()
             output = model(data.contiguous())
 
