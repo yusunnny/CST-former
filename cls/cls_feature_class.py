@@ -63,7 +63,6 @@ class FeatureClass:
         self._multi_accdoa = params['multi_accdoa']
         self._use_salsalite = params['use_salsalite']
         self._use_real_imag = params['use_real_imag']
-        self._FoARot = params['FoA16Rotation']
 
         if self._use_salsalite and self._dataset == 'mic':
             # Initialize the spatial feature constants
@@ -682,26 +681,6 @@ class FeatureClass:
                 '{}_label'.format(
                     '{}_adpit'.format(self._dataset_combination) if self._multi_accdoa else self._dataset_combination)
             )
-
-    def get_ACS_feat_dir(self):
-        return os.path.join(
-            self._feat_label_dir,
-            '{}_norm_{}'.format('{}_salsa'.format(self._dataset_combination) if (
-                        self._dataset == 'mic' and self._use_salsalite) else self._dataset_combination,
-                                  'ACS' if not self._FoARot else 'FoARot')
-        )
-
-    def get_ACS_label_dir(self):
-        if self._is_eval:
-            return None
-        else:
-            return os.path.join(
-                self._feat_label_dir,
-                '{}_label_{}'.format(
-                    '{}_adpit'.format(self._dataset_combination) if self._multi_accdoa else self._dataset_combination,
-                    'ACS' if not self._FoARot else 'FoARot')
-            )
-
 
     def get_normalized_wts_file(self):
         return os.path.join(
