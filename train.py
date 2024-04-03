@@ -107,7 +107,7 @@ def main(argv):
                 loc_feat = '{}_gcc'.format(params['dataset'])
         loc_output = 'multiaccdoa' if params['multi_accdoa'] else 'accdoa'
 
-        # ---------------------------------------------- (순서만 달라졌어 별 의미 없음)
+        # ----------------------------------------------
         unique_name = '{}_{}_{}_split{}_{}_{}'.format(
             task_id, job_id, params['mode'], split_cnt, loc_output, loc_feat
         )
