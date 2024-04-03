@@ -54,11 +54,11 @@ DCASE_SELD                                   This repository.
    python3 preprocess.py <task-id>
    ```
 4. Train CST-former
-  - Additionally, you can add/change parameters by using a unique identifier task-id in if-else loop as seen in the parameter.py script and call them as following
+  - Additionally, you can add/change parameters by using a unique identifier ```<task-id>``` in if-else loop as seen in the parameter.py script and call them as following
   ```
   python3 train.py <task-id> <job-id>
   ```
-  - Where job-id is a unique identifier that is used for output filenames (models, training plots). You can use any number or string for this.
+  - Where ```<job-id>``` is a unique identifier that is used for output filenames (models, training plots). You can use any number or string for this.
 
 4. Inference for evaluation
   ```   
