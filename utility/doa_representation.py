@@ -54,35 +54,3 @@ def get_accdoa_labels(accdoa_in, nb_classes):
     sed = np.sqrt(x ** 2 + y ** 2 + z ** 2) > 0.5
 
     return sed, accdoa_in
-
-def inverse_get_multi_accdoa_doas_4_mixup(y_sed, y_doa):
-    """
-    Args
-        y_sed:  [batch_size, frames, nb_overlap*num_class=3*13]
-        y_doa:  [batch_size, frames, num_axis*nb_overlap*num_class=3*3*13]
-    Return
-        y_doa: [batch_size, frames, sed(1)+num_axis(3)=4, nb_overlap*num_class=3*13]
-    """
-    nb_classes = y_doa.shape[-1] // 3
-    y_sed = torch.unsqueeze(y_sed, -2)
-    y_doa_x = torch.unsqueeze(y_doa[:, :,:, 0:nb_classes], -2)
-    y_doa_y = torch.unsqueeze(y_doa[:, :,:, nb_classes:2 * nb_classes],-2)
-    y_doa_z = torch.unsqueeze(y_doa[:, :,:, 2 * nb_classes:],-2)
-    y_doa = torch.cat((y_sed, y_doa_x, y_doa_y, y_doa_z), dim=-2)
-    return y_doa
-
-def get_multi_accdoa_doas_4_mixup(accdoa_in):
-    """
-    Args:
-        accdoa_in:  [batch_size, frames, num_track*num_axis*num_class=3*3*13]
-        nb_classes: scalar
-    Return:
-        doa:       [batch_size, frames, num_axis, nb_overlap*num_class=3*13]
-    """
-    sed = accdoa_in[:,:,:,0,:]
-    x = accdoa_in[:, :,:, 1,:]
-    y = accdoa_in[:, :,:, 2,:]
-    z = accdoa_in[:, :,:, 3,:]
-
-    doa = np.concatenate((x, y, z), axis=-1)
-    return sed, doa
