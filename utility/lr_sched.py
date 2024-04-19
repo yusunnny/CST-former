@@ -31,9 +31,7 @@ def adjust_learning_rate_ramp(optimizer, epoch, params):
 def adjust_lr_by_epoch(optimizer, epoch, params):
     """Decay the learning rate with ramp,
     maintaining the highest lr for a while, and then half-cycle cosine """
-    if params['t_pooling_loc'] == 'front':
-        stay_epoch = params['lr_by_epoch_stay_epoch'] # ACS aug : 90로 세팅
-    else: stay_epoch = 100
+    stay_epoch = params['lr_by_epoch_stay_epoch']
     warm_up1 = params['warmup_epochs']
 
     if epoch < warm_up1:
