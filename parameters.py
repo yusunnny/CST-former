@@ -153,9 +153,9 @@ def get_params(argv='1'):
         params['baseline'] = False
         params['lr_scheduler'] = True
         params['lr_by_epoch'] = True
-        params['lr_by_epoch_stay_epoch'] = 150 #150
-        params['nb_epochs'] = 300
-        params['batch_size'] = 256 #256
+        params['lr_by_epoch_stay_epoch'] = 200 #150
+        params['nb_epochs'] = 500
+        params['batch_size'] = 32 #256
 
         params['FreqAtten'] = True
         params['ChAtten_ULE'] = True
