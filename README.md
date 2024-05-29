@@ -1,7 +1,7 @@
 # CST-former: Transformer with Channel-Spectro-Temporal Attention  for Sound Event Localization and Detection (ICASSP 2024)
 - Yusun Shul, Jung-Woo Choi*
 - ICASSP 2024
-- [Link to paper](https://ieeexplore.ieee.org/document/10447181)
+- [Paper Link](https://ieeexplore.ieee.org/document/10447181)
     
 ## Overview
 ### Architecture of audio-only CST-former for SELD
@@ -10,12 +10,12 @@
 - The development dataset can be downloaded from the link. 
     - [Sony-TAu Realistic Spatial Soundscapes 2023 (STARSS23)](https://zenodo.org/record/7709052)
     - [Sony-TAu Realistic Spatial Soundscapes 2023 (STARSS22)](https://zenodo.org/records/6600531)
-- Official Synthetic dataset can be downloaded from the link. 
+- The official Synthetic dataset can be downloaded from the link. 
     - [[DCASE2022 Task 3] Synthetic SELD mixtures for baseline training](https://zenodo.org/record/6406873#.ZEjVc3ZByUl)
 
 ## Getting Started
 ### Directory Structure
-We recommend you to follow the below directory structure. foa_dev, metadata_dev, and video_dev are from the above link of zenodo.
+We recommend you follow the directory structure below. foa_dev, metadata_dev, and video_dev are from the above link of zenodo.
 ```
 DCASE_SELD                                   This repository.
 ├── data
