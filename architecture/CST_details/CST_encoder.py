@@ -5,6 +5,7 @@ from einops import rearrange
 class CST_attention(torch.nn.Module):
     def __init__(self, temp_embed_dim, params):
         super().__init__()
+        self.nb_mel_bins = params['nb_mel_bins']
         self.ChAtten_dca = params['ChAtten_DCA']
         self.ChAtten_ule = params['ChAtten_ULE']
         self.FreqAtten = params['FreqAtten']
@@ -27,7 +28,7 @@ class CST_attention(torch.nn.Module):
             self.patch_size_t = 25 if params['t_pooling_loc']=='end' else 10
             self.patch_size_f = 4
             self.patch_size = (self.patch_size_t, self.patch_size_f)
-            self.freq_dim = int(64 / torch.prod(torch.Tensor(params['f_pool_size'])))
+            self.freq_dim = int(self.nb_mel_bins / torch.prod(torch.Tensor(params['f_pool_size'])))
             self.temp_dim = 250 if params['t_pooling_loc']=='end' else 50
             self.unfold = nn.Unfold(kernel_size=self.patch_size, stride=self.patch_size)
             self.fold = nn.Fold(output_size=(self.temp_dim, self.freq_dim), kernel_size=self.patch_size, stride=self.patch_size)
