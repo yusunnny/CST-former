@@ -11,7 +11,7 @@ def main(argv):
     # It is enough to compute the feature and labels once.
 
     # use parameter set defined by user
-    task_id = '3' if len(argv) < 2 else argv[1]
+    task_id = '33' if len(argv) < 2 else argv[1]
     params = parameters.get_params(task_id)
 
     # -------------- Extract features and labels for development set -----------------------------
