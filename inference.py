@@ -38,7 +38,7 @@ def main(argv):
         print('\n\n')
 
 
-    os.environ["CUDA_VISIBLE_DEVICES"] = '1'
+    # os.environ["CUDA_VISIBLE_DEVICES"] = '1'
     device = torch.device('cuda')
 
     # ---------------------------------------------- (For Reproducibility)
@@ -56,10 +56,10 @@ def main(argv):
     torch.autograd.set_detect_anomaly(True)
 
     # use parameter set defined by user
-    task_id = '365' if len(argv) < 2 else argv[1]
+    task_id = '33' if len(argv) < 2 else argv[1]
     params = parameters.get_params(task_id)
 
-    job_id = 5 if len(argv) < 3 else argv[-1]
+    job_id = 1 if len(argv) < 3 else argv[-1]
 
     # Training setup
     train_splits, val_splits, test_splits = None, None, None
