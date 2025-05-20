@@ -42,7 +42,7 @@ def main(argv):
         print('-------------------------------------------------------------------------------------------------------')
         print('\n\n')
 
-    os.environ["CUDA_VISIBLE_DEVICES"] = '2,3'
+    # os.environ["CUDA_VISIBLE_DEVICES"] = '2,3'
     device = torch.device('cuda')
 
     #---------------------------------------------- (For Reproducibility)
@@ -61,7 +61,7 @@ def main(argv):
     torch.autograd.set_detect_anomaly(True)
 
     # use parameter set defined by user
-    task_id = '3' if len(argv) < 2 else argv[1]
+    task_id = '33' if len(argv) < 2 else argv[1]
     params = parameters.get_params(task_id)
 
     job_id = 1 if len(argv) < 3 else argv[-1]
