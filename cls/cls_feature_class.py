@@ -451,15 +451,14 @@ class FeatureClass:
         print('Normalizing feature files:')
         print('\t\tfeat_dir_norm {}'.format(self._feat_dir_norm))
         for file_cnt, file_name in enumerate(os.listdir(self._feat_dir)):
-            if int(file_name[4]) in [8,9]:
-                print('{}: {}'.format(file_cnt, file_name))
-                feat_file = np.load(os.path.join(self._feat_dir, file_name))
-                feat_file = spec_scaler.transform(feat_file)
-                np.save(
-                    os.path.join(self._feat_dir_norm, file_name),
-                    feat_file
-                )
-                del feat_file
+            print('{}: {}'.format(file_cnt, file_name))
+            feat_file = np.load(os.path.join(self._feat_dir, file_name))
+            feat_file = spec_scaler.transform(feat_file)
+            np.save(
+                os.path.join(self._feat_dir_norm, file_name),
+                feat_file
+            )
+            del feat_file
 
         print('normalized files written to {}'.format(self._feat_dir_norm))
 
